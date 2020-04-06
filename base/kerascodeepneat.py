@@ -4,9 +4,9 @@ import networkx as nx
 import matplotlib.pyplot as plt
 from enum import Enum, auto
 from typing import List
-from keras.utils import to_categorical
 from keras.utils.vis_utils import plot_model
 from sklearn.cluster import KMeans
+from time import sleep
 from sklearn.neighbors import NearestCentroid
 from sklearn.preprocessing import scale
 from keras import backend as K
@@ -443,7 +443,6 @@ class Individual:
         """
         
         logging.info(f"Scoring one individual")
-        # test_y = to_categorical(test_y, num_classes=len(np.unique(test_y)))
         scores = self.model.evaluate(test_x, test_y, verbose=1)
         
         #Update scores for blueprints (and underlying modules)
@@ -965,8 +964,12 @@ class Population:
 
         for individual in self.individuals:
             if (self.datasets.custom_fit_args is not None):
+                print("\n\nINPUTING SHAPES:\n",input_x.shape, input_y.shape)
+               
                 history = individual.fit(input_x, input_y, training_epochs, validation_split, current_generation=current_generation, custom_fit_args=self.datasets.custom_fit_args)
             else:
+                print("\n\nINPUTING SHAPES:\n",input_x.shape, input_y.shape)
+               
                 history = individual.fit(input_x, input_y, training_epochs, validation_split, current_generation=current_generation)
             score = individual.score(test_x, test_y)
 
