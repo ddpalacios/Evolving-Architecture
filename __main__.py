@@ -25,14 +25,12 @@ if __name__ == "__main__":
     generations = 2
     training_epochs = 2
     final_model_training_epochs = 2
-    population_size = 1
-    blueprint_population_size = 10
-    module_population_size = 30
+    population_size = 100
+    blueprint_population_size = 100
+    module_population_size = 100
     n_blueprint_species = 3
     n_module_species = 3
-    validation_split = 0.15
-    batch_size = 32
-
+    batch_size = 128
 
     create_dir("models/")
     create_dir("images/")
