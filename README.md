@@ -35,11 +35,10 @@ The framework generates a series of files logging the evolution of populations (
 - GraphViz 0.11.1
 - SkLearn 0.21.3
 
+For Graphviz:
+
 -sudo apt-get install python3-dev graphviz libgraphviz-dev pkg-config
 
 -sudo pip install pygraphviz
 
 
-Compartibility with other version has not been tested.                                                                                                                                                                                                                                                                                                                                                                                                                                                          
-
-               
